@@ -1,341 +1,876 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ngatour Rohman — Android Developer & UI/UX Specialist</title>
+    <meta name="description"
+        content="Ngatour Rohman - Professional Android Developer specializing in Kotlin, Jetpack Compose, and modern mobile app development. UI/UX enthusiast with expertise in creating intuitive user experiences." />
+    <meta name="author" content="Ngatour Rohman" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0ea5e9" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0ea5e9" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ngatour Rohman — Android Developer & UI/UX Specialist" />
+    <meta property="og:description"
+        content="Professional Android Developer specializing in Kotlin, Jetpack Compose, and modern mobile app development." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/images/og-cover.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 
     <!-- UNICONS -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>Portfolio Ngatour Rohman</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- Meta -->
-    <meta name="description"
-        content="Ngatour Rohman — Android (Kotlin) • UI/UX • AI (CNN). Fresh Graduate Informatics." />
-    <meta property="og:title" content="Ngatour Rohman — Portfolio" />
-    <meta property="og:description" content="Android (Kotlin) • UI/UX • AI (CNN)" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/images/og-cover.png" />
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e'
+                        },
+                        glass: {
+                            light: 'rgba(255, 255, 255, 0.1)',
+                            dark: 'rgba(15, 23, 42, 0.2)'
+                        }
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+                        'glass-lg': '0 15px 40px 0 rgba(31, 38, 135, 0.3)',
+                        'neon': '0 0 20px rgba(14, 165, 233, 0.3)',
+                        'neon-lg': '0 0 40px rgba(14, 165, 233, 0.4)'
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'shimmer': 'shimmer 2s linear infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': {
+                                opacity: '0'
+                            },
+                            '100%': {
+                                opacity: '1'
+                            }
+                        },
+                        slideUp: {
+                            '0%': {
+                                transform: 'translateY(30px)',
+                                opacity: '0'
+                            },
+                            '100%': {
+                                transform: 'translateY(0)',
+                                opacity: '1'
+                            }
+                        },
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0px)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-20px)'
+                            }
+                        },
+                        glow: {
+                            '0%': {
+                                boxShadow: '0 0 20px rgba(14, 165, 233, 0.3)'
+                            },
+                            '100%': {
+                                boxShadow: '0 0 40px rgba(14, 165, 233, 0.6)'
+                            }
+                        },
+                        shimmer: {
+                            '0%': {
+                                backgroundPosition: '-200px 0'
+                            },
+                            '100%': {
+                                backgroundPosition: '200px 0'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body>
-    <div class="container">
-        <!-- HEADER -->
-        <nav id="header">
-            <div class="nav-logo">
-                <p class="nav-name">Ngatour Rohman</p>
-                <span>.</span>
-            </div>
+<body
+    class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles"></div>
 
-            <div class="nav-menu" id="myNavMenu">
-                <ul class="nav_menu_list">
-                    <li class="nav_list">
-                        <a href="#home" class="nav-link active-link">Home</a>
-                        <div class="circle"></div>
-                    </li>
-                    <li class="nav_list">
-                        <a href="#about" class="nav-link">About</a>
-                        <div class="circle"></div>
-                    </li>
-                    <li class="nav_list">
-                        <a href="#projects" class="nav-link">Projects</a>
-                        <div class="circle"></div>
-                    </li>
-                    <li class="nav_list">
-                        <a href="#contact" class="nav-link">Contact</a>
-                        <div class="circle"></div>
-                    </li>
-                </ul>
-            </div>
+    <!-- Header - Glassmorphism -->
+    <header class="header-glass">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#home" class="font-bold text-xl tracking-tight flex items-center gap-3">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center shadow-neon">
+                    <span class="text-white font-bold text-sm">NR</span>
+                </div>
+                <span class="bg-gradient-to-r from-brand-600 to-purple-600 bg-clip-text text-transparent">Ngatour
+                    Rohman</span>
+            </a>
 
-            <div class="nav-button">
-                <a href="assets/pdf/CV Ngatour Rohman.pdf" class="btn" style="text-decoration:none;">
-                    Download CV <i class="uil uil-file-alt"></i>
+            <nav class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#about" class="hover:text-brand-600 transition-all hover:scale-105">About</a>
+                <a href="#skills" class="hover:text-brand-600 transition-all hover:scale-105">Skills</a>
+                <a href="#projects" class="hover:text-brand-600 transition-all hover:scale-105">Projects</a>
+                <a href="#experience" class="hover:text-brand-600 transition-all hover:scale-105">Experience</a>
+                <a href="#contact" class="hover:text-brand-600 transition-all hover:scale-105">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="assets/pdf/CV_Ngatour_Rohman.pdf"
+                    class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-500 to-brand-600 text-white px-6 py-2.5 text-sm font-medium shadow-glass hover:shadow-glass-lg transition-all hover:scale-105 btn-glow">
+                    <i class="uil uil-file-download"></i>
+                    Download CV
                 </a>
+                <button id="themeToggle"
+                    class="rounded-xl glass dark:glass-dark p-3 hover:shadow-glass-lg transition-all hover:scale-105"
+                    aria-label="Toggle theme">
+                    <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0-1.414-1.414M7.05 7.05 5.636 5.636" />
+                        <circle cx="12" cy="12" r="4" /></svg>
+                    <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Glassmorphism -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal order-2 lg:order-1">
+                <div class="glass-card rounded-3xl p-8 shadow-glass-lg">
+                    <p class="text-sm uppercase tracking-widest text-brand-500 font-semibold mb-4">👋 Hello, I'm Arthur
+                    </p>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6">
+                        Android
+                        <span class="gradient-text block">Developer</span>
+                        & UI/UX
+                        <span class="gradient-text-purple block">Designer</span>
+                    </h1>
+                    <p class="text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                        I specialize in creating modern Android applications using <span
+                            class="font-semibold text-brand-600">Kotlin</span> and <span
+                            class="font-semibold text-purple-600">Jetpack Compose</span>.
+                        Passionate about clean architecture and intuitive user experiences.
+                    </p>
+                    <p class="mb-8 text-slate-500 dark:text-slate-400 text-lg">
+                        Currently focused on: <span
+                            class="typedText font-bold text-slate-900 dark:text-slate-100"></span>
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <a href="#projects"
+                            class="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-brand-500 to-brand-600 text-white px-8 py-4 font-bold shadow-glass hover:shadow-glass-lg transition-all hover:scale-105 btn-glow">
+                            <span>Explore My Work</span>
+                            <i class="uil uil-arrow-right"></i>
+                        </a>
+                        <a href="https://wa.me/6282321194770" target="_blank"
+                            class="inline-flex items-center gap-3 rounded-xl glass-card px-8 py-4 font-bold hover:shadow-glass-lg transition-all hover:scale-105">
+                            <i class="uil uil-whatsapp"></i>
+                            Let's Talk
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-6 text-2xl">
+                        <a href="https://www.linkedin.com/in/ngatour-rohman/" target="_blank" aria-label="LinkedIn"
+                            class="hover:text-brand-600 transition-all hover:scale-110 hover:-translate-y-1">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+                        <a href="https://github.com/NgatourRohman" target="_blank" aria-label="GitHub"
+                            class="hover:text-brand-600 transition-all hover:scale-110 hover:-translate-y-1">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                        <a href="https://dribbble.com/Arthur1235" target="_blank" aria-label="Dribbble"
+                            class="hover:text-brand-600 transition-all hover:scale-110 hover:-translate-y-1">
+                            <i class="uil uil-dribbble"></i>
+                        </a>
+                        <a href="https://www.instagram.com/arthurrr_md " target="_blank" aria-label="Instagram"
+                            class="hover:text-brand-600 transition-all hover:scale-110 hover:-translate-y-1">
+                            <i class="uil uil-instagram"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="nav-menu-btn">
-                <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+            <div class="reveal order-1 lg:order-2 flex justify-center">
+                <div class="relative">
+                    <div class="floating">
+                        <div class="w-80 h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-glass-lg neon-border">
+                            <img src="assets/images/profile.jpg" alt="Ngatour Rohman - Android Developer"
+                                class="object-cover w-full h-full profile-image" />
+                        </div>
+                    </div>
+                    <!-- Floating elements around profile -->
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-brand-400/20 rounded-2xl -z-10 floating"
+                        style="animation-delay: -2s;"></div>
+                    <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-purple-400/20 rounded-3xl -z-10 floating"
+                        style="animation-delay: -4s;"></div>
+                    <div class="absolute top-1/2 -right-12 w-16 h-16 bg-cyan-400/20 rounded-xl -z-10 floating"
+                        style="animation-delay: -1s;"></div>
+                </div>
             </div>
-        </nav>
+        </div>
+    </section>
 
-        <!-- MAIN -->
-        <main class="wrapper">
-            <!-- FEATURED -->
-            <section class="featured-box" id="home">
-                <div class="featured-text">
-                    <div class="featured-text-card">
-                        <span>Ngatour Rohman</span>
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="reveal">
+                    <div class="glass-card rounded-3xl p-8 shadow-glass-lg">
+                        <h2 class="text-4xl font-black mb-6 gradient-text">About Me</h2>
+                        <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                            I'm a fresh graduate in Informatics Engineering from <span
+                                class="font-semibold text-brand-600">Universitas Indraprasta PGRI</span> with a strong
+                            passion for mobile development and user experience design. Based in Depok, Indonesia, I
+                            enjoy creating solutions that are both functional and beautiful.
+                        </p>
+                        <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                            My journey in technology started with curiosity about how apps work, which led me to
+                            specialize in Android development with Kotlin. I believe in continuous learning and staying
+                            updated with the latest trends in mobile development.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mt-8">
+                            <div>
+                                <h4 class="font-bold text-brand-600 mb-2">Education</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">
+                                    S1 Teknik Informatika<br>
+                                    Universitas Indraprasta PGRI<br>
+                                    GPA: 3.54
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-600 mb-2">Location</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">
+                                    Depok, Indonesia<br>
+                                    Open to Remote Work<br>
+                                    Available Immediately
+                                </p>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="featured-name">
-                        <p>I'm <span class="typedText"></span></p>
-                    </div>
-
-                    <div class="featured-text-info">
-                        <p>
-                            Fresh Graduate Informatics — Android developer (Kotlin) with a love for clean UI/UX and
-                            practical AI (CNN) on mobile. Building useful, friendly apps.
+                </div>
+                <div class="grid sm:grid-cols-2 gap-6 reveal">
+                    <div
+                        class="glass-card rounded-2xl p-6 shadow-glass hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                        <div
+                            class="w-14 h-14 bg-gradient-to-br from-brand-500 to-brand-600 rounded-2xl flex items-center justify-center mb-4 shadow-neon">
+                            <i class="uil uil-android text-white text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">Mobile First</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">
+                            Specialized in Android development with modern architecture patterns and best practices.
                         </p>
                     </div>
-
-                    <div class="featured-text-btn">
-                        <a href="https://api.whatsapp.com/send?phone=6282321194770" class="btn blue-btn"
-                            style="text-decoration:none;">Hire Me</a>
-                        <a href="assets/pdf/CV Ngatour Rohman.pdf" class="btn" style="text-decoration:none;">Download CV
-                            <i class="uil uil-file-alt"></i></a>
+                    <div
+                        class="glass-card rounded-2xl p-6 shadow-glass hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                        <div
+                            class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 shadow-neon">
+                            <i class="uil uil-palette text-white text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">Design Minded</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">
+                            Creating intuitive, accessible, and beautiful user experiences that users love.
+                        </p>
                     </div>
+                    <div
+                        class="glass-card rounded-2xl p-6 shadow-glass hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                        <div
+                            class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-4 shadow-neon">
+                            <i class="uil uil-bolt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">Fast Learner</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">
+                            Quick to adapt to new technologies and frameworks in the ever-evolving tech landscape.
+                        </p>
+                    </div>
+                    <div
+                        class="glass-card rounded-2xl p-6 shadow-glass hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                        <div
+                            class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4 shadow-neon">
+                            <i class="uil uil-users-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">Team Player</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">
+                            Excellent communication skills and experience in collaborative development environments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="social_icons">
-                        <div class="icon">
-                            <a href="https://www.instagram.com/arthur.r_1?utm_source=qr&igsh=OG9weTZlc3B4ZTA3"
-                                aria-label="Instagram">
-                                <i class="uil uil-instagram"></i>
-                            </a>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-black mb-4 gradient-text">Technical Skills</h2>
+                <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+                    Technologies and tools I use to bring ideas to life
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="glass-card rounded-3xl p-8 text-center reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-brand-500 to-brand-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-neon">
+                        <i class="uil uil-android text-white text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-4">Mobile Development</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Kotlin</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Jetpack Compose</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">MVVM Architecture</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Room Database</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Retrofit</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Material Design</span>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-card rounded-3xl p-8 text-center reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-neon">
+                        <i class="uil uil-edit-alt text-white text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-4">UI/UX Design</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Figma</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Wireframing</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Prototyping</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">User Research</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Design Systems</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Usability Testing</span>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-card rounded-3xl p-8 text-center reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-neon">
+                        <i class="uil uil-brain text-white text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-4">Tools & Others</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Git & GitHub</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Android Studio</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">VS Code</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Firebase</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Supabase</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">REST APIs</span>
+                        <span class="px-4 py-2 rounded-full glass text-sm font-medium">Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-black mb-4 gradient-text">Featured Projects</h2>
+                <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+                    A showcase of my work in mobile development, web technologies, and AI integration
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- Fruit Classifier App -->
+                <div
+                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/images/projects/fruit-app.png" alt="Fruit Classifier Mobile App"
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4">
+                            <span
+                                class="px-3 py-1 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white text-xs font-bold shadow-neon">AI/ML</span>
                         </div>
-                        <div class="icon">
-                            <a href="https://www.linkedin.com/in/ngatour-rohman/" aria-label="LinkedIn">
-                                <i class="uil uil-linkedin-alt"></i>
-                            </a>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">Fruit Classifier (CNN)</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
+                            Mobile application for classifying 10 tropical fruits using MobileNetV2 with focus on
+                            lightweight inference and smooth user experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Kotlin</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">TorchScript</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">MobileNetV2</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">CNN</span>
                         </div>
-                        <div class="icon">
-                            <a href="https://dribbble.com/Arthur1235" aria-label="Dribbble">
-                                <i class="uil uil-dribbble"></i>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a href="https://github.com/NgatourRohman" aria-label="GitHub">
-                                <i class="uil uil-github-alt"></i>
-                            </a>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Thesis Project</span>
+                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
+                                →</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="featured-image">
-                    <div class="image">
-                        <img src="assets/images/avatar.jpg" alt="Portrait of Ngatour Rohman" />
+                <!-- VigilantEyes -->
+                <div
+                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/images/projects/vigilanteyes.png" alt="VigilantEyes Anti-Bullying App"
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4">
+                            <span
+                                class="px-3 py-1 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xs font-bold shadow-neon">PKM-KC</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">VigilantEyes</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
+                            Android-based bullying prevention tool integrated with CCTV systems for safer school
+                            environments.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Android</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Kotlin</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">UI/UX</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Prototype</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">PKM-KC 2024</span>
+                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
+                                →</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="scroll-icon-box">
-                    <a href="#about" class="scroll-btn">
-                        <i class="uil uil-mouse-alt"></i>
-                        <p>Scroll Down</p>
+                <!-- Sistem Pakar Paskibra -->
+                <div
+                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/images/projects/paskibra-expert.png"
+                            alt="Sistem Pakar Tes Mental Calon Paskibra"
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4">
+                            <span
+                                class="px-3 py-1 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white text-xs font-bold shadow-neon">AI/Expert
+                                System</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">Sistem Pakar Tes Mental Paskibra</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
+                            Expert system for psychological testing of Paskibra candidates using training data and
+                            rule-based reasoning.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Python</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Expert System</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Training Data</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Rule-Based</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">AI Project</span>
+                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
+                                →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trashure -->
+                <div
+                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/images/projects/trashure.png" alt="Trashure Waste Management App"
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">Trashure</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
+                            Household waste management and education app with focus on modular architecture and
+                            intuitive user interface design.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Kotlin</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Jetpack Compose</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Clean Arch</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">MVVM</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Personal Project</span>
+                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
+                                →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPK AHP Lensa -->
+                <div
+                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/images/projects/ahp-optic.png" alt="SPK AHP Lensa Decision System"
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">SPK AHP Lensa - Optik Buana Surya</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
+                            Decision support system for eyeglass lens selection using Analytic Hierarchy Process
+                            methodology.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">PHP</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">MySQL</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">JavaScript</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">AHP Method</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Web Application</span>
+                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
+                                →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Library Management -->
+                <div
+                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/images/projects/library.png" alt="Library Management System"
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">Library Management System</h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
+                            Simple web application for book and borrowing management with admin and user interfaces.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">PHP</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">MySQL</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Bootstrap</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Academic Project</span>
+                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
+                                →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub CTA -->
+            <div class="text-center mt-16 reveal">
+                <a href="https://github.com/NgatourRohman" target="_blank"
+                    class="inline-flex items-center gap-3 rounded-xl glass-card px-8 py-4 font-bold hover:shadow-glass-lg transition-all hover:scale-105">
+                    <i class="uil uil-github"></i>
+                    Explore More on GitHub
+                    <i class="uil uil-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-black mb-4 gradient-text">Experience & Education</h2>
+                <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+                    My professional journey and academic background
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Experience -->
+                <div class="reveal">
+                    <div class="glass-card rounded-3xl p-8 shadow-glass-lg">
+                        <h3 class="text-2xl font-black mb-6 gradient-text-purple">Professional Experience</h3>
+
+                        <div class="space-y-6">
+                            <!-- WOWLAB Experience -->
+                            <div class="border-l-4 border-brand-500 pl-6 py-2">
+                                <div class="flex flex-wrap items-center justify-between mb-2">
+                                    <h4 class="font-bold text-lg">IT Mentor & Team Leader</h4>
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-brand-500/20 text-brand-600 text-xs font-bold">May
+                                        2025 – Aug 2025</span>
+                                </div>
+                                <p class="text-brand-600 font-medium mb-3">Wowlab Japan IT Course</p>
+                                <ul class="text-slate-600 dark:text-slate-300 text-sm space-y-2">
+                                    <li class="flex items-start gap-2">
+                                        <i class="uil uil-check-circle text-brand-500 mt-1"></i>
+                                        <span>Guided participants in understanding course materials and technical
+                                            concepts</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="uil uil-check-circle text-brand-500 mt-1"></i>
+                                        <span>Managed and organized learning materials, schedules, and learning
+                                            timelines</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="uil uil-check-circle text-brand-500 mt-1"></i>
+                                        <span>Evaluated student progress and compiled final reports</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- PKM-KC Experience -->
+                            <div class="border-l-4 border-purple-500 pl-6 py-2">
+                                <div class="flex flex-wrap items-center justify-between mb-2">
+                                    <h4 class="font-bold text-lg">PKM-KC Project Lead</h4>
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-600 text-xs font-bold">May
+                                        2024 – Jul 2024</span>
+                                </div>
+                                <p class="text-purple-600 font-medium mb-3">VigilantEyes Anti-Bullying System</p>
+                                <p class="text-slate-500 dark:text-slate-400 text-sm mb-3"><span
+                                        class="font-semibold">By:</span> Ministry of Education,
+                                    Culture, Research, and Technology RI</p>
+                                <ul class="text-slate-600 dark:text-slate-300 text-sm space-y-2">
+                                    <li class="flex items-start gap-2">
+                                        <i class="uil uil-check-circle text-purple-500 mt-1"></i>
+                                        <span>Designed application UI/UX using Figma with user-centered approach</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="uil uil-check-circle text-purple-500 mt-1"></i>
+                                        <span>Developed functional application system for end-users with optimal
+                                            performance</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="uil uil-check-circle text-purple-500 mt-1"></i>
+                                        <span>Created attractive promotional posters and marketing materials</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Bangkit Academy Experience -->
+                            <div class="border-l-4 border-cyan-500 pl-6 py-2">
+                                <div class="flex flex-wrap items-center justify-between mb-2">
+                                    <h4 class="font-bold text-lg">Study Independen - Android Developer</h4>
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-600 text-xs font-bold">Aug
+                                        2023 – Dec 2023</span>
+                                </div>
+                                <p class="text-cyan-600 font-medium mb-3">Bangkit Academy - Android Learning Path</p>
+                                <p class="text-slate-600 dark:text-slate-300 text-sm mb-2">
+                                    <span class="font-semibold">By:</span> Google, Gojek, Tokopedia, & Traveloka
+                                </p>
+                                <ul class="text-slate-600 dark:text-slate-300 text-sm space-y-2">
+                                    <li class="flex items-start gap-2">
+                                        <i class="uil uil-check-circle text-cyan-500 mt-1"></i>
+                                        <span>Android Application Development using modern technologies and best
+                                            practices</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="uil uil-check-circle text-cyan-500 mt-1"></i>
+                                        <span>Implementation of Google Technologies in real-world projects</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="uil uil-check-circle text-cyan-500 mt-1"></i>
+                                        <span>Applied Agile & Scrum Methodologies for project management</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="uil uil-check-circle text-cyan-500 mt-1"></i>
+                                        <span>Developed Capstone Project in collaborative team environment</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education & Certifications -->
+                <div class="reveal">
+                    <div class="glass-card rounded-3xl p-8 shadow-glass-lg">
+                        <h3 class="text-2xl font-black mb-6 gradient-text">Education & Certifications</h3>
+
+                        <div class="space-y-6">
+                            <!-- University -->
+                            <div class="border-l-4 border-cyan-500 pl-6 py-2">
+                                <div class="flex flex-wrap items-center justify-between mb-2">
+                                    <h4 class="font-bold text-lg">Bachelor of Informatics Engineering</h4>
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-600 text-xs font-bold">2021
+                                        – 2025</span>
+                                </div>
+                                <p class="text-cyan-600 font-medium mb-3">Universitas Indraprasta PGRI</p>
+                                <p class="text-slate-600 dark:text-slate-300 text-sm mb-2">
+                                    <span class="font-semibold">GPA:</span> 3.54/4.00
+                                </p>
+                                <p class="text-slate-600 dark:text-slate-300 text-sm">
+                                    <span class="font-semibold">Thesis:</span> "Classification of 10 Tropical Fruits
+                                    using
+                                    CNN on Mobile Applications"
+                                </p>
+                            </div>
+
+                            <!-- Certifications -->
+                            <div>
+                                <h4 class="font-bold text-lg mb-4">Certifications & Achievements</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-start gap-3">
+                                        <div
+                                            class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                            <i class="uil uil-award text-white text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700 dark:text-slate-300">Bangkit Academy
+                                                Graduate</p>
+                                            <p class="text-slate-600 dark:text-slate-400 text-sm">Android Learning Path
+                                                -
+                                                MSIB Batch 5</p>
+                                            <p class="text-slate-500 dark:text-slate-500 text-xs">Issued by Google,
+                                                Gojek,
+                                                Tokopedia, & Traveloka</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div
+                                            class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                            <i class="uil uil-trophy text-white text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700 dark:text-slate-300">PKM-KC Awardee
+                                                2024
+                                            </p>
+                                            <p class="text-slate-600 dark:text-slate-400 text-sm">Program Kreativitas
+                                                Mahasiswa</p>
+                                            <p class="text-slate-500 dark:text-slate-500 text-xs">Ministry of Education,
+                                                Culture, Research, and Technology RI</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div
+                                            class="w-10 h-10 bg-gradient-to-br from-brand-500 to-brand-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                            <i class="uil uil-certificate text-white text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700 dark:text-slate-300">Android
+                                                Development
+                                                Certified</p>
+                                            <p class="text-slate-600 dark:text-slate-400 text-sm">Mobile Development
+                                                Specialization</p>
+                                            <p class="text-slate-500 dark:text-slate-500 text-xs">Kotlin, Jetpack
+                                                Compose,
+                                                MVVM Architecture</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-black mb-4 gradient-text">Get In Touch</h2>
+                <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+                    I'm currently available for internship or full-time opportunities as an Android Developer.
+                    Let's discuss how we can work together!
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <a href="mailto:ngatourrohman25@gmail.com"
+                    class="glass-card rounded-2xl p-6 text-center group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-neon">
+                        <i class="uil uil-envelope text-white text-2xl"></i>
+                    </div>
+                    <p class="font-semibold text-lg mb-2">Email</p>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm">ngatourrohman25@gmail.com</p>
+                </a>
+
+                <a href="https://wa.me/6282321194770" target="_blank"
+                    class="glass-card rounded-2xl p-6 text-center group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-neon">
+                        <i class="uil uil-whatsapp text-white text-2xl"></i>
+                    </div>
+                    <p class="font-semibold text-lg mb-2">WhatsApp</p>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm">+62 823-2119-4770</p>
+                </a>
+
+                <a href="https://github.com/NgatourRohman" target="_blank"
+                    class="glass-card rounded-2xl p-6 text-center group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-neon">
+                        <i class="uil uil-github text-white text-2xl"></i>
+                    </div>
+                    <p class="font-semibold text-lg mb-2">GitHub</p>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm">NgatourRohman</p>
+                </a>
+
+                <a href="https://www.linkedin.com/in/ngatour-rohman" target="_blank"
+                    class="glass-card rounded-2xl p-6 text-center group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-neon">
+                        <i class="uil uil-linkedin text-white text-2xl"></i>
+                    </div>
+                    <p class="font-semibold text-lg mb-2">LinkedIn</p>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm">ngatour-rohman</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-200/50 dark:border-slate-700/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-bold text-lg mb-2">Ngatour Rohman</p>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm">
+                        Android Developer & UI/UX Specialist
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <a href="#home"
+                        class="text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-colors text-sm font-medium">
+                        Back to top
                     </a>
-                </div>
-            </section>
-
-            <!-- ABOUT -->
-            <section class="section" id="about">
-                <div class="top-header">
-                    <h1>About Me</h1>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <div class="about-info">
-                            <h3>My Introduction</h3>
-                            <p>
-                                I’m a Fresh Graduate (S1 Teknik Informatika, Universitas Indraprasta PGRI) focusing on
-                                Android development with Kotlin, UI/UX, and applied AI (CNN). Alumnus Bangkit Academy
-                                2023
-                                (Mobile Development). I also served as <b>IT Mentor & Team Leader</b> at WOWLAB Japan IT
-                                Course
-                                (May–Aug 2025) guiding learners and coordinating progress & reports.
-                            </p>
-                            <p>
-                                Recent work includes a mobile CNN project for <b>tropical fruit classification</b>, an
-                                <b>Anti-Bullying “VigilantEyes”</b> concept, and decision-support systems (AHP) for real
-                                cases.
-                                I enjoy building apps that are simple, fast, and helpful.
-                            </p>
-                            <br />
-                            <div class="about-btn">
-                                <a href="assets/pdf/CV Ngatour Rohman.pdf" class="btn" download
-                                    style="text-decoration:none;">
-                                    Download CV <i class="uil uil-import"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="skills-box">
-                            <div class="skills-header">
-                                <h3>Mobile & Frontend</h3>
-                            </div>
-                            <div class="skills-list">
-                                <span>Kotlin (Android)</span>
-                                <span>Jetpack / Compose</span>
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                                <span>Bootstrap/Tailwind</span>
-                                <span>Figma (UI/UX)</span>
-                            </div>
-                        </div>
-
-                        <div class="skills-box">
-                            <div class="skills-header">
-                                <h3>Backend & Tools</h3>
-                            </div>
-                            <div class="skills-list">
-                                <span>PHP</span>
-                                <span>Java</span>
-                                <span>REST API</span>
-                                <span>Git/GitHub</span>
-                                <span>Android Studio</span>
-                            </div>
-                        </div>
-
-                        <div class="skills-box">
-                            <div class="skills-header">
-                                <h3>Database & AI</h3>
-                            </div>
-                            <div class="skills-list">
-                                <span>MySQL</span>
-                                <span>PostgreSQL</span>
-                                <span>MongoDB</span>
-                                <span>PyTorch (CNN)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- PROJECTS -->
-            <section class="section" id="projects">
-                <div class="top-header">
-                    <h1>Projects</h1>
-                </div>
-
-                <div class="project-container">
-                    <!-- Fruit Classifier (CNN Mobile) -->
-                    <div class="project-box">
-                        <h3>Fruit Classifier (CNN Mobile)</h3>
-                        <p>Mobile app to identify 10 tropical fruits using CNN, optimized for on-device use.</p>
-                        <div class="project-actions">
-                            <a href="#" class="btn" style="text-decoration:none;">Case Study</a>
-                            <a href="https://github.com/NgatourRohman" class="btn blue-btn"
-                                style="text-decoration:none;">Repository</a>
-                        </div>
-                    </div>
-
-                    <!-- VigilantEyes -->
-                    <div class="project-box">
-                        <h3>VigilantEyes</h3>
-                        <p>Android-based bullying prevention concept leveraging CCTV streams and alert workflows.</p>
-                        <div class="project-actions">
-                            <a href="#" class="btn" style="text-decoration:none;">Overview</a>
-                        </div>
-                    </div>
-
-                    <!-- SPK AHP Lensa -->
-                    <div class="project-box">
-                        <h3>SPK AHP — Optik</h3>
-                        <p>Decision Support System for lens selection (AHP) in optical shop workflow.</p>
-                        <div class="project-actions">
-                            <a href="#" class="btn" style="text-decoration:none;">Demo</a>
-                        </div>
-                    </div>
-
-                    <!-- Trashure -->
-                    <div class="project-box">
-                        <h3>Trashure</h3>
-                        <p>Waste management education & tracking app for urban communities.</p>
-                        <div class="project-actions">
-                            <a href="#" class="btn" style="text-decoration:none;">Preview</a>
-                        </div>
-                    </div>
-
-                    <!-- Library Management -->
-                    <div class="project-box">
-                        <h3>Library Management</h3>
-                        <p>Lightweight web system for cataloging, lending, and reporting.</p>
-                        <div class="project-actions">
-                            <a href="#" class="btn" style="text-decoration:none;">Screens</a>
-                        </div>
-                    </div>
-
-                    <!-- Toko Optik -->
-                    <div class="project-box">
-                        <h3>Toko Optik</h3>
-                        <p>Simple POS & inventory for small optical store operations.</p>
-                        <div class="project-actions">
-                            <a href="#" class="btn" style="text-decoration:none;">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CONTACT -->
-            <section class="section" id="contact">
-                <div class="top-header">
-                    <h1>Get in touch</h1>
-                    <span>Have a project in mind? Let’s talk.</span>
-                </div>
-
-                <div>
-                    <div>
-                        <div class="contact-info">
-                            <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
-                            <p><i class="uil uil-envelope"></i> Email: <a href="mailto:ngatourrohman25@gmail.com"
-                                    style="text-decoration:none;">ngatourrohman25@gmail.com</a></p>
-                            <p><i class="uil uil-phone"></i> Tel: <a
-                                    href="https://api.whatsapp.com/send?phone=6282321194770"
-                                    style="text-decoration:none;">+62 823 2119 4770</a></p>
-                            <p><i class="uil uil-map-marker"></i> Depok, Indonesia</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- FOOTER -->
-        <footer>
-            <div class="top-footer">
-                <p>Ngatour Rohman .</p>
-            </div>
-
-            <div class="middle-footer">
-                <ul class="footer-menu">
-                    <li class="footer_menu_list"><a href="#home">Home</a></li>
-                    <li class="footer_menu_list"><a href="#about">About</a></li>
-                    <li class="footer_menu_list"><a href="#projects">Projects</a></li>
-                    <li class="footer_menu_list"><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-social-icons">
-                <div class="icon"><a href="https://www.instagram.com/arthur.r_1?utm_source=qr&igsh=OG9weTZlc3B4ZTA3"><i
-                            class="uil uil-instagram"></i></a></div>
-                <div class="icon"><a href="https://www.linkedin.com/in/ngatour-rohman/"><i
-                            class="uil uil-linkedin-alt"></i></a></div>
-                <div class="icon"><a href="https://dribbble.com/Arthur1235"><i class="uil uil-dribbble"></i></a></div>
-                <div class="icon"><a href="https://github.com/NgatourRohman"><i class="uil uil-github-alt"></i></a>
+                    <div class="h-4 w-px bg-slate-300 dark:bg-slate-600"></div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">
+                        © <span id="year"></span> All rights reserved.
+                    </p>
                 </div>
             </div>
+        </div>
+    </footer>
 
-            <div class="bottom-footer">
-                <p>Copyright &copy; <a href="#home" style="text-decoration:none;">Ngatour Rohman</a> — All rights
-                    reserved</p>
-            </div>
-        </footer>
-    </div>
-
-    <!-- TYPING JS -->
+    <!-- JavaScript -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-
-    <!-- SCROLL REVEAL -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- MAIN JS -->
-    <script src="assets/js/main.js"></script>
-
+    <script src="js/script.js"></script>
 </body>
 
 </html>
