@@ -175,7 +175,7 @@
         <div class="max-w-7xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-16 items-center">
             <div class="reveal order-2 lg:order-1">
                 <div class="glass-card rounded-3xl p-8 shadow-glass-lg">
-                    <p class="text-sm uppercase tracking-widest text-brand-500 font-semibold mb-4">👋 Hello, I'm Arthur
+                    <p class="text-sm uppercase tracking-widest text-brand-500 font-semibold mb-4">👋 Hello, I'm Ngatour
                     </p>
                     <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6">
                         Android
@@ -395,7 +395,7 @@
                         <span class="px-4 py-2 rounded-full glass text-sm font-medium">REST APIs</span>
                         <span class="px-4 py-2 rounded-full glass text-sm font-medium">Python</span>
                         <span class="px-4 py-2 rounded-full glass text-sm font-medium">Microsoft Office</span>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -407,58 +407,64 @@
             <div class="text-center mb-16 reveal">
                 <h2 class="text-4xl font-black mb-4 gradient-text">Featured Projects</h2>
                 <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-                    A showcase of my work in mobile development, web technologies, and AI integration
+                    A showcase of my work in mobile development and AI integration
                 </p>
             </div>
 
             <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
                 <!-- Fruit Classifier App -->
-                <div
-                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
+                <div class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2 cursor-pointer project-card"
+                    data-project-id="fruit-app">
+                    <div class="relative overflow-hidden project-image-container">
                         <img src="assets/images/projects/fruit-app.png" alt="Fruit Classifier Mobile App"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute top-4 right-4">
                             <span
-                                class="px-3 py-1 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white text-xs font-bold shadow-neon">AI/ML</span>
+                                class="px-3 py-1 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white text-xs font-bold shadow-neon">
+                                AI/ML Research
+                            </span>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-xl mb-2">Fruit Classifier (CNN)</h4>
+                    <div class="p-6 flex-grow">
+                        <h4 class="font-bold text-xl mb-2">Fruit Classifier CNN Mobile</h4>
                         <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
-                            Mobile application for classifying 10 tropical fruits using MobileNetV2 with focus on
-                            lightweight inference and smooth user experience.
+                            Android application for classifying 10 tropical fruits using Convolutional Neural Network.
+                            <strong>Thesis Project</strong> with 92.4% accuracy and on-device inference.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">Kotlin</span>
-                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">TorchScript</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">PyTorch Mobile</span>
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">MobileNetV2</span>
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">CNN</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Jetpack Compose</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-slate-500">Thesis Project</span>
-                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
-                                →</a>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="text-xs text-slate-500">Thesis Project • 6 Months</span>
+                            <a href="pages/project-detail.html?id=fruit-app"
+                                class="text-brand-600 hover:text-brand-700 text-sm font-medium flex items-center gap-1 view-details-link">
+                                View Details
+                                <i class="uil uil-arrow-up-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- VigilantEyes -->
-                <div
-                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
+                <div class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2 cursor-pointer project-card"
+                    data-project-id="vigilanteyes">
+                    <div class="relative overflow-hidden project-image-container">
                         <img src="assets/images/projects/vigilanteyes.png" alt="VigilantEyes Anti-Bullying App"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute top-4 right-4">
                             <span
                                 class="px-3 py-1 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xs font-bold shadow-neon">PKM-KC</span>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex-grow">
                         <h4 class="font-bold text-xl mb-2">VigilantEyes</h4>
                         <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
                             Android-based bullying prevention tool integrated with CCTV systems for safer school
-                            environments.
+                            environments. Award-winning project in PKM-KC 2024.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">Android</span>
@@ -466,32 +472,35 @@
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">UI/UX</span>
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">Prototype</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-slate-500">PKM-KC 2024</span>
-                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
-                                →</a>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="text-xs text-slate-500">PKM-KC 2024 • Team Project</span>
+                            <a href="pages/project-detail.html?id=vigilanteyes"
+                                class="text-brand-600 hover:text-brand-700 text-sm font-medium flex items-center gap-1 view-details-link">
+                                View Details
+                                <i class="uil uil-arrow-up-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Sistem Pakar Paskibra -->
-                <div
-                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
+                <div class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2 cursor-pointer project-card"
+                    data-project-id="paskibra-expert">
+                    <div class="relative overflow-hidden project-image-container">
                         <img src="assets/images/projects/paskibra-expert.png"
                             alt="Sistem Pakar Tes Mental Calon Paskibra"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute top-4 right-4">
                             <span
                                 class="px-3 py-1 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white text-xs font-bold shadow-neon">AI/Expert
                                 System</span>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex-grow">
                         <h4 class="font-bold text-xl mb-2">Sistem Pakar Tes Mental Paskibra</h4>
                         <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
                             Expert system for psychological testing of Paskibra candidates using training data and
-                            rule-based reasoning.
+                            rule-based reasoning. Academic AI project.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">Python</span>
@@ -499,53 +508,65 @@
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">Training Data</span>
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">Rule-Based</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-slate-500">AI Project</span>
-                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
-                                →</a>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="text-xs text-slate-500">AI Project • Academic</span>
+                            <a href="pages/project-detail.html?id=paskibra-expert"
+                                class="text-brand-600 hover:text-brand-700 text-sm font-medium flex items-center gap-1 view-details-link">
+                                View Details
+                                <i class="uil uil-arrow-up-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Trashure -->
-                <div
-                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
+                <div class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2 cursor-pointer project-card"
+                    data-project-id="trashure">
+                    <div class="relative overflow-hidden project-image-container">
                         <img src="assets/images/projects/trashure.png" alt="Trashure Waste Management App"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4">
+                            <span
+                                class="px-3 py-1 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-white text-xs font-bold shadow-neon">
+                                Bangkit Capstone
+                            </span>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-xl mb-2">Trashure</h4>
+                    <div class="p-6 flex-grow">
+                        <h4 class="font-bold text-xl mb-2">Trashure - Waste Management</h4>
                         <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
-                            Household waste management and education app with focus on modular architecture and
-                            intuitive user interface design.
+                            Capstone project for Bangkit Academy 2023. Team-based waste management app with AI
+                            classification features.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">Kotlin</span>
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">Jetpack Compose</span>
-                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Clean Arch</span>
-                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">MVVM</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">ML Kit</span>
+                            <span class="px-3 py-1 rounded-full glass text-xs font-medium">Team Project</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-slate-500">Personal Project</span>
-                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
-                                →</a>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="text-xs text-slate-500">Bangkit 2023 • Incomplete</span>
+                            <a href="pages/project-detail.html?id=trashure"
+                                class="text-brand-600 hover:text-brand-700 text-sm font-medium flex items-center gap-1 view-details-link">
+                                View Details
+                                <i class="uil uil-arrow-up-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- SPK AHP Lensa -->
-                <div
-                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
+                <div class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2 cursor-pointer project-card"
+                    data-project-id="ahp-optic">
+                    <div class="relative overflow-hidden project-image-container">
                         <img src="assets/images/projects/ahp-optic.png" alt="SPK AHP Lensa Decision System"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex-grow">
                         <h4 class="font-bold text-xl mb-2">SPK AHP Lensa - Optik Buana Surya</h4>
                         <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
                             Decision support system for eyeglass lens selection using Analytic Hierarchy Process
-                            methodology.
+                            methodology. Web application project.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">PHP</span>
@@ -553,35 +574,42 @@
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">JavaScript</span>
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">AHP Method</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-slate-500">Web Application</span>
-                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
-                                →</a>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="text-xs text-slate-500">Web Application • Academic</span>
+                            <a href="pages/project-detail.html?id=ahp-optic"
+                                class="text-brand-600 hover:text-brand-700 text-sm font-medium flex items-center gap-1 view-details-link">
+                                View Details
+                                <i class="uil uil-arrow-up-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Library Management -->
-                <div
-                    class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
+                <div class="glass-card rounded-3xl overflow-hidden group reveal hover:shadow-glass-lg transition-all hover:-translate-y-2 cursor-pointer project-card"
+                    data-project-id="library">
+                    <div class="relative overflow-hidden project-image-container">
                         <img src="assets/images/projects/library.png" alt="Library Management System"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex-grow">
                         <h4 class="font-bold text-xl mb-2">Library Management System</h4>
                         <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
                             Simple web application for book and borrowing management with admin and user interfaces.
+                            Academic web development project.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">PHP</span>
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">MySQL</span>
                             <span class="px-3 py-1 rounded-full glass text-xs font-medium">Bootstrap</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-slate-500">Academic Project</span>
-                            <a href="#" class="text-brand-600 hover:text-brand-700 text-sm font-medium">View Details
-                                →</a>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="text-xs text-slate-500">Academic Project • Completed</span>
+                            <a href="pages/project-detail.html?id=library"
+                                class="text-brand-600 hover:text-brand-700 text-sm font-medium flex items-center gap-1 view-details-link">
+                                View Details
+                                <i class="uil uil-arrow-up-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -747,7 +775,7 @@
 
             <!-- View All Button -->
             <div class="text-center reveal">
-                <a href="certificates.html"
+                <a href="pages/certificates.html"
                     class="inline-flex items-center gap-3 rounded-xl glass-card px-8 py-4 font-bold hover:shadow-glass-lg transition-all hover:scale-105">
                     <i class="uil uil-certificate-alt"></i>
                     View All 26 Certificates
@@ -1072,7 +1100,6 @@
 
     <!-- JavaScript -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="js/darkMode.js"></script>
     <script src="js/script.js"></script>
     <script src="js/pdfPreview.js"></script>
 </body>

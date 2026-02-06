@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Details - Ngatour Rohman</title>
+    <meta name="description"
+        content="Detailed view of project showcasing problem background, goals, personal contributions, and technical implementation." />
+    <meta name="author" content="Ngatour Rohman" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0ea5e9" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0ea5e9" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+
+    <!-- UNICONS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header - Glassmorphism -->
+    <header class="header-glass">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="../index.html" class="font-bold text-xl tracking-tight flex items-center gap-3">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center shadow-neon">
+                    <span class="text-white font-bold text-sm">NR</span>
+                </div>
+                <span class="bg-gradient-to-r from-brand-600 to-purple-600 bg-clip-text text-transparent">Ngatour
+                    Rohman</span>
+            </a>
+
+            <div class="flex items-center gap-4">
+                <a href="../index.html#projects"
+                    class="inline-flex items-center gap-2 rounded-xl glass-card px-6 py-2.5 text-sm font-medium hover:shadow-glass-lg transition-all hover:scale-105">
+                    <i class="uil uil-arrow-left"></i>
+                    Back to Projects
+                </a>
+                <button id="themeToggle"
+                    class="rounded-xl glass dark:glass-dark p-3 hover:shadow-glass-lg transition-all hover:scale-105"
+                    aria-label="Toggle theme">
+                    <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0-1.414-1.414M7.05 7.05 5.636 5.636" />
+                        <circle cx="12" cy="12" r="4" />
+                    </svg>
+                    <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Detail Content -->
+    <main class="max-w-6xl mx-auto px-4 py-8 md:py-16">
+        <!-- Back Button (Mobile) -->
+        <div class="mb-8 md:hidden">
+            <a href="../index.html#projects"
+                class="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-medium">
+                <i class="uil uil-arrow-left"></i>
+                Back to Projects
+            </a>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Main Content (2/3 width) -->
+            <div class="lg:col-span-2">
+                <!-- Project Header -->
+                <div class="glass-card rounded-3xl p-6 md:p-8 mb-8 shadow-glass-lg">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                        <div>
+                            <span id="projectCategory"
+                                class="px-3 py-1 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white text-xs font-bold shadow-neon mb-3 inline-block">
+                                Loading...
+                            </span>
+                            <h1 id="projectTitle" class="text-3xl md:text-4xl font-black gradient-text mb-2">
+                                Loading Project...
+                            </h1>
+                            <p id="projectTagline" class="text-slate-600 dark:text-slate-300 text-lg">
+                                Loading description...
+                            </p>
+                        </div>
+                        <div id="projectStatus"
+                            class="px-4 py-2 rounded-full bg-green-500/20 text-green-600 font-medium text-sm">
+                            Loading...
+                        </div>
+                    </div>
+
+                    <!-- Project Hero Image -->
+                    <div class="rounded-2xl overflow-hidden mb-6">
+                        <img id="projectHeroImage" src="../assets/images/projects/fruit-app.png" alt="Project Hero"
+                            class="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+
+                    <!-- Project Summary -->
+                    <div class="grid md:grid-cols-3 gap-4 mb-8">
+                        <div class="glass rounded-xl p-4">
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Timeline</p>
+                            <p id="projectTimeline" class="font-semibold">Loading...</p>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Team Size</p>
+                            <p id="projectTeam" class="font-semibold">Loading...</p>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Completion</p>
+                            <p id="projectCompletion" class="font-semibold">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Sections -->
+                <div class="space-y-8" id="dynamicSections">
+                    <!-- Sections will be dynamically loaded -->
+                </div>
+            </div>
+
+            <!-- Sidebar (1/3 width) -->
+            <div class="lg:col-span-1">
+                <!-- Quick Info Card -->
+                <div class="glass-card rounded-3xl p-6 md:p-8 sticky top-24 shadow-glass-lg mb-8">
+                    <h3 class="text-xl font-bold mb-6">Project Quick Info</h3>
+
+                    <!-- Technologies Used -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-3 flex items-center gap-2">
+                            <i class="uil uil-code-branch text-brand-600"></i>
+                            Technologies Used
+                        </h4>
+                        <div id="technologiesUsed" class="flex flex-wrap gap-2">
+                            <!-- Technologies will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Project Links -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-3 flex items-center gap-2">
+                            <i class="uil uil-link-alt text-brand-600"></i>
+                            Project Links
+                        </h4>
+                        <div id="projectLinks" class="space-y-3">
+                            <!-- Links will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Challenges Overcome -->
+                    <div>
+                        <h4 class="font-semibold mb-3 flex items-center gap-2">
+                            <i class="uil uil-trophy text-brand-600"></i>
+                            Key Challenges
+                        </h4>
+                        <div id="challenges" class="space-y-2">
+                            <!-- Challenges will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Gained -->
+                <div class="glass-card rounded-3xl p-6 md:p-8 shadow-glass-lg">
+                    <h3 class="text-xl font-bold mb-6">Skills Gained</h3>
+                    <div id="skillsGained" class="space-y-3">
+                        <!-- Skills will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-200/50 dark:border-slate-700/50 mt-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-bold text-lg mb-2">Ngatour Rohman</p>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm">
+                        Android Developer & UI/UX Specialist
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <a href="../index.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-colors text-sm font-medium">
+                        Back to Portfolio
+                    </a>
+                    <div class="h-4 w-px bg-slate-300 dark:bg-slate-600"></div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">
+                        © <span id="year"></span> All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/project-detail.js"></script>
+</body>
+
+</html>

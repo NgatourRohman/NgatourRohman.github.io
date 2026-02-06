@@ -1,10 +1,13 @@
 // Simple Dark Mode Toggle
 document.addEventListener('DOMContentLoaded', function () {
-    
-    // Dark mode sudah dihandle oleh darkMode.js
+    // Initialize dark mode
+    initDarkMode();
+
     // Create particles
     function createParticles() {
         const particlesContainer = document.getElementById('particles');
+        if (!particlesContainer) return;
+
         const particleCount = 15;
 
         for (let i = 0; i < particleCount; i++) {
@@ -29,20 +32,62 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Reveal on scroll
-    const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('show');
+    // Dark mode initialization
+    function initDarkMode() {
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+
+        if (!themeToggle) return;
+
+        // Check for saved theme preference or default to dark
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme') ||
+            (prefersDark.matches ? 'dark' : 'light');
+
+        // Apply theme
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            if (sunIcon) sunIcon.classList.remove('hidden');
+            if (moonIcon) moonIcon.classList.add('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            if (sunIcon) sunIcon.classList.add('hidden');
+            if (moonIcon) moonIcon.classList.remove('hidden');
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+
+            if (isDark) {
+                if (sunIcon) sunIcon.classList.remove('hidden');
+                if (moonIcon) moonIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                if (sunIcon) sunIcon.classList.add('hidden');
+                if (moonIcon) moonIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
+    }
 
-    revealEls.forEach(el => io.observe(el));
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    if (revealEls.length > 0) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealEls.forEach(el => io.observe(el));
+    }
 
     // Set current year
     const yearElement = document.getElementById('year');
@@ -54,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         // Skip if href is just "#"
         if (anchor.getAttribute('href') === '#') return;
-        
+
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
@@ -92,52 +137,129 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('.certificate-item[data-certificate]')) {
         initCertificatePreview();
     }
+
+    // Initialize project card click handlers
+    initProjectCards();
 });
 
-// Certificate Preview Modal (for index.html)
+// Projects data with detail links
+const projectsList = [
+    {
+        id: "fruit-app",
+        title: "Fruit Classifier CNN Mobile",
+        description: "Android application for classifying 10 tropical fruits using Convolutional Neural Network.",
+        image: "../assets/images/projects/fruit-app.png",
+        category: "AI/ML Research",
+        tags: ["Kotlin", "TorchScript", "MobileNetV2", "CNN"],
+        type: "Thesis Project",
+        detailUrl: "pages/project-detail.html?id=fruit-app"
+    },
+    {
+        id: "vigilanteyes",
+        title: "VigilantEyes",
+        description: "Android-based bullying prevention tool integrated with CCTV systems for safer school environments.",
+        image: "../assets/images/projects/vigilanteyes.png",
+        category: "PKM-KC",
+        tags: ["Android", "Flutter", "UI/UX", "Prototype"],
+        type: "PKM-KC 2024",
+        detailUrl: "pages/project-detail.html?id=vigilanteyes"
+    },
+    {
+        id: "paskibra-expert",
+        title: "Sistem Pakar Tes Mental Paskibra",
+        description: "Expert system for psychological testing of Paskibra candidates using training data and rule-based reasoning.",
+        image: "../assets/images/projects/paskibra-expert.png",
+        category: "AI/Expert System",
+        tags: ["Python", "Expert System", "Training Data", "Rule-Based"],
+        type: "AI Project",
+        detailUrl: "pages/project-detail.html?id=paskibra-expert"
+    },
+    {
+        id: "trashure",
+        title: "Trashure - Waste Management",
+        description: "Capstone project for Bangkit Academy 2023. Team-based waste management app with AI classification features.",
+        image: "../assets/images/projects/trashure.png",
+        category: "Bangkit Capstone",
+        tags: ["Kotlin", "Jetpack Compose", "ML Kit", "Team Project"],
+        type: "Bangkit Academy",
+        detailUrl: "pages/project-detail.html?id=trashure"
+    },
+    {
+        id: "ahp-optic",
+        title: "SPK AHP Lensa - Optik Buana Surya",
+        description: "Decision support system for eyeglass lens selection using Analytic Hierarchy Process methodology.",
+        image: "../assets/images/projects/ahp-optic.png",
+        category: "Web Application",
+        tags: ["PHP", "MySQL", "JavaScript", "AHP Method"],
+        type: "Web Application",
+        detailUrl: "pages/project-detail.html?id=ahp-optic"
+    },
+    {
+        id: "library",
+        title: "Library Management System",
+        description: "Simple web application for book and borrowing management with admin and user interfaces.",
+        image: "../assets/images/projects/library.png",
+        category: "Web Application",
+        tags: ["PHP", "MySQL", "Bootstrap"],
+        type: "Academic Project",
+        detailUrl: "pages/project-detail.html?id=library"
+    }
+];
+
+// Initialize project card click handlers
+function initProjectCards() {
+    // Get all project cards
+    const projectCards = document.querySelectorAll('#projects .project-card');
+
+    projectCards.forEach((card, index) => {
+        if (index < projectsList.length) {
+            const project = projectsList[index];
+
+            // Add click event to entire card
+            card.addEventListener('click', (e) => {
+                // Don't trigger if clicking on links inside the card
+                if (e.target.tagName === 'A' || e.target.closest('a')) {
+                    return;
+                }
+
+                // Navigate to project detail page
+                window.location.href = project.detailUrl;
+            });
+
+            // Update "View Details" link
+            const viewDetailsLink = card.querySelector('.view-details-link');
+            if (viewDetailsLink) {
+                viewDetailsLink.href = project.detailUrl;
+
+                // Prevent card click when clicking link
+                viewDetailsLink.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+
+            // Add hover effects
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+                card.style.transition = 'transform 0.3s ease';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        }
+    });
+}
+
+// Certificate Preview Modal
 function initCertificatePreview() {
+    console.log('Initializing certificate preview...');
+    
     const certificateItems = document.querySelectorAll('.certificate-item[data-certificate]');
     
-    // Create modal if it doesn't exist
-    let modal = document.getElementById('certificatePreviewModal');
-    if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'certificatePreviewModal';
-        modal.className = 'certificate-modal';
-        modal.innerHTML = `
-            <div class="modal-content relative max-w-4xl">
-                <button id="closePreviewModal" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform">
-                    <i class="uil uil-times text-xl"></i>
-                </button>
-                <div class="p-1" style="min-height: 500px;">
-                    <div id="pdfPreviewContainer" class="w-full h-full flex items-center justify-center">
-                        <div class="pdf-loading flex flex-col items-center justify-center py-12">
-                            <div class="w-16 h-16 border-4 border-brand-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-                            <p class="text-slate-600 dark:text-slate-300">Loading PDF preview...</p>
-                        </div>
-                        <canvas id="pdfPreviewCanvas" class="hidden w-full h-auto rounded-lg"></canvas>
-                    </div>
-                </div>
-                <div class="p-6 border-t border-slate-200 dark:border-slate-700">
-                    <h3 id="previewCertificateTitle" class="font-bold text-2xl mb-2"></h3>
-                    <p id="previewCertificateDescription" class="text-slate-600 dark:text-slate-300 mb-4"></p>
-                    <div class="flex flex-wrap gap-3 items-center justify-between">
-                        <div class="flex items-center gap-4">
-                            <span id="previewCertificateDate" class="px-3 py-1 rounded-full glass text-sm"></span>
-                            <span id="previewCertificateCategory" class="px-3 py-1 rounded-full bg-brand-500/20 text-brand-600 text-sm font-medium"></span>
-                        </div>
-                        <a id="previewDownloadLink" href="#" download class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-brand-500 to-brand-600 text-white font-medium hover:shadow-neon transition-all">
-                            <i class="uil uil-download-alt"></i>
-                            Download PDF
-                        </a>
-                    </div>
-                </div>
-            </div>
-        `;
-        document.body.appendChild(modal);
-    }
-    
-    // Certificate preview data (Latest 3 certificates)
+    // Debug log
+    console.log('Certificate items found:', certificateItems.length);
+
+    // Certificate preview data
     const previewCertificates = {
         15: { // PKM-KC Award (Latest)
             title: "PKM-KC Awardee 2024",
@@ -167,59 +289,67 @@ function initCertificatePreview() {
             downloadLink: "assets/pdf/certificates/excel-features.pdf"
         }
     };
+
+    // Check if modal exists, if not create it
+    let modal = document.getElementById('certificatePreviewModal');
+    const closeBtn = document.getElementById('closePreviewModal');
     
-    // Open preview modal
-    certificateItems.forEach(item => {
-        item.addEventListener('click', function () {
-            const certId = this.getAttribute('data-certificate');
-            const certData = previewCertificates[certId];
-            
-            if (certData) {
-                document.getElementById('previewCertificateTitle').textContent = certData.title;
-                document.getElementById('previewCertificateDescription').textContent = certData.description;
-                document.getElementById('previewCertificateDate').textContent = certData.date;
-                document.getElementById('previewCertificateCategory').textContent = certData.category;
-                document.getElementById('previewDownloadLink').href = certData.downloadLink;
-                
-                // Load and display PDF
-                loadPDFPreview(certData.pdf, 'pdfPreviewCanvas', 'pdfPreviewContainer');
-                
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
-    });
-    
-    // Load PDF and display first page
-    function loadPDFPreview(pdfUrl, canvasId, containerId) {
-        const container = document.getElementById(containerId);
-        const canvas = document.getElementById(canvasId);
+    console.log('Modal found:', !!modal);
+    console.log('Close button found:', !!closeBtn);
+
+    // Show certificate modal function
+    function showCertificateModal(certData) {
+        console.log('Opening certificate modal for:', certData.title);
+        
+        // Update modal content
+        document.getElementById('previewCertificateTitle').textContent = certData.title;
+        document.getElementById('previewCertificateDescription').textContent = certData.description;
+        document.getElementById('previewCertificateDate').textContent = certData.date;
+        document.getElementById('previewCertificateCategory').textContent = certData.category;
+        document.getElementById('previewDownloadLink').href = certData.downloadLink;
+
+        // Load PDF using function from pdfPreview.js
+        if (typeof window.loadPDFPreview === 'function') {
+            console.log('Calling loadPDFPreview from pdfPreview.js');
+            window.loadPDFPreview(certData.pdf, 'pdfPreviewCanvas', 'pdfPreviewContainer');
+        } else {
+            console.error('loadPDFPreview function not found!');
+            // Fallback if pdfPreview.js not loaded
+            loadPDFFallback(certData.pdf);
+        }
+
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    // Fallback PDF loading function
+    function loadPDFFallback(pdfUrl) {
+        console.log('Using fallback PDF loader');
+        const container = document.getElementById('pdfPreviewContainer');
+        const canvas = document.getElementById('pdfPreviewCanvas');
         const loading = container.querySelector('.pdf-loading');
         
-        // Show loading, hide canvas
+        if (!loading || !canvas) return;
+        
         loading.classList.remove('hidden');
         canvas.classList.add('hidden');
         
-        // Load PDF using pdf.js
         const loadingTask = pdfjsLib.getDocument(pdfUrl);
         loadingTask.promise.then(pdf => {
-            // Get first page
             pdf.getPage(1).then(page => {
                 const viewport = page.getViewport({ scale: 1.3 });
-                
-                // Prepare canvas using PDF page dimensions
                 const context = canvas.getContext('2d');
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
                 
-                // Render PDF page on canvas
                 const renderContext = {
                     canvasContext: context,
                     viewport: viewport
                 };
                 
                 page.render(renderContext).promise.then(() => {
-                    // Hide loading, show canvas
                     loading.classList.add('hidden');
                     canvas.classList.remove('hidden');
                 });
@@ -235,39 +365,63 @@ function initCertificatePreview() {
             `;
         });
     }
-    
-    // Get category display name
-    function getCategoryName(category) {
-        const categories = {
-            'android': 'Android Development',
-            'uiux': 'UI/UX Design',
-            'excel': 'Microsoft Excel',
-            'award': 'Award & Recognition',
-            'other': 'Other'
-        };
-        return categories[category] || category;
-    }
-    
-    // Close preview modal
-    const closePreviewBtn = document.getElementById('closePreviewModal');
-    if (closePreviewBtn) {
-        closePreviewBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+
+    // Open preview modal on click
+    certificateItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+            console.log('Certificate item clicked');
+            const certId = this.getAttribute('data-certificate');
+            const certData = previewCertificates[certId];
+
+            if (certData) {
+                showCertificateModal(certData);
+            } else {
+                console.error('Certificate data not found for ID:', certId);
+            }
+        });
+    });
+
+    // Setup close button if it exists
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            console.log('Close button clicked');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         });
     }
-    
-    modal.addEventListener('click', function (e) {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-    
+
+    // Close modal when clicking outside
+    if (modal) {
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Close modal with Escape key
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
     });
+    
+    console.log('Certificate preview initialization complete');
 }
+
+// Initialize when page loads
+window.addEventListener('load', () => {
+    // Initialize enhanced project cards
+    if (document.querySelector('#projects')) {
+        initProjectCards();
+    }
+
+    // Add loaded class for CSS transitions
+    document.body.classList.add('loaded');
+    
+    console.log('Page fully loaded');
+});
